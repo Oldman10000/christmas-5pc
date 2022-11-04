@@ -41,6 +41,7 @@ body {
 }
 #overlay--frame {
   z-index: 99;
+  transform: scaleX(1);
 }
 #overlay--frame-img {
   height: 100%;
@@ -76,4 +77,16 @@ body {
   top: 20px;
   right: 20px;
   z-index:999;
+}
+#overlay--selector {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 999;
+}
+.frame--selector {
+  background-color: white;
+  width: 100px;
+  height: auto;
+  cursor: pointer;
 }

@@ -9,6 +9,8 @@ const cameraView = document.querySelector("#camera--view"),
   frame = document.querySelector("#overlay--frame-img"),
   saveButton = document.querySelector("#camera--output-save");
 
+  frameSelectors = document.querySelectorAll(".frame--selector");
+
 // Access the device camera and stream to cameraView
 function cameraStart() {
   navigator.mediaDevices
@@ -31,8 +33,8 @@ cameraTrigger.onclick = function () {
   context.drawImage(frame, 0, 0, cameraView.videoWidth, cameraView.videoHeight);
   cameraOutput.src = cameraSensor.toDataURL("image/webp");
   cameraOutputWrapper.classList.add("taken");
-  cameraOutputWrapper.style.width = cameraView.videoWidth * 0.8;
-  cameraOutputWrapper.style.height = cameraView.videoHeight * 0.8;
+  cameraOutputWrapper.style.width = cameraView.videoWidth;
+  cameraOutputWrapper.style.height = cameraView.videoHeight;
   saveButton.style.display = "block";
 };
 // Add image source to download output
@@ -41,3 +43,9 @@ saveButton.onclick = function () {
 };
 // Start the video stream when the window loads
 window.addEventListener("load", cameraStart, false);
+frameSelectors.forEach(selector => {
+  selector.onclick = function () {
+    let src = selector.dataset.img;
+    frame.src = "/assets/img/" + src;
+  }
+});

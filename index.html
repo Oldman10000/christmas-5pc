@@ -7,27 +7,20 @@
     <title>Camera App</title>
     <!-- Link to your main style sheet-->
     <link rel="stylesheet" href="assets/css/style.css" />
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js"
-      integrity="sha512-gmwBmiTVER57N3jYS3LinA9eb8aHrJua5iQD7yqYCKa5x6Jjc7VDVaEA0je0Lu0bP9j7tEjV3+1qUm6loO99Kw=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    ></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/Draggable.min.js"
-      integrity="sha512-gb0L1oKetT+9EmxmPd4jIhvqLs3sT8hYJIkBCd9g3LOlWzSBuM+ERETImRrOWsAhheU9KpxaA1g3chxOl77sqg=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    ></script>
   </head>
   <body>
     <!-- Camera -->
     <main id="camera">
       <!-- Camera sensor -->
       <canvas id="camera--sensor"></canvas>
+      <!-- Choose frame -->
+      <div id="overlay--selector">
+          <img class="frame--selector" data-img="frame.png" src="/assets/img/frame.png" alt="">
+          <img class="frame--selector" data-img="frame2.png" src="/assets/img/frame2.png" alt="">
+      </div>
       <!-- Overlay christmassy frame -->
       <div id="overlay--frame">
-        <img id="overlay--frame-img" src="assets/img/frame.png" alt="">
+        <img id="overlay--frame-img" src="" alt="">
       </div>
       <!-- Camera view -->
       <video id="camera--view" autoplay playsinline></video>
