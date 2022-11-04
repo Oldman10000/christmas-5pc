@@ -14,24 +14,24 @@
       <!-- Camera sensor -->
       <canvas id="camera--sensor"></canvas>
       <!-- Choose frame -->
-      <div id="overlay--selector">
+      <div id="overlay--selector" class="hidden">
           <img class="frame--selector" data-img="frame.png" src="/assets/img/frame.png" alt="">
           <img class="frame--selector" data-img="frame2.png" src="/assets/img/frame2.png" alt="">
       </div>
       <!-- Add Text -->
-      <div id="overlay--text">
+      <div id="overlay--text" class="hidden">
         <input id="overlay--text-input" type="text" placeholder="Merry Christmas from...">
       </div>
       <!-- Overlay text -->
-      <h1 id="overlay--text-content"></h1>
+      <h1 id="overlay--text-content" class="hidden"></h1>
       <!-- Overlay christmassy frame -->
-      <div id="overlay--frame">
+      <div id="overlay--frame" class="hidden">
         <img id="overlay--frame-img" src="" alt="">
       </div>
       <!-- Camera view -->
       <video id="camera--view" autoplay playsinline></video>
       <!-- Camera output -->
-      <div id="camera--output-wrapper">
+      <div id="camera--output-wrapper" class="hidden">
         <img src="//:0" alt="" id="camera--output" />
         <a
           href="#"
@@ -42,7 +42,7 @@
         >
       </div>
       <!-- Camera trigger -->
-      <button id="camera--trigger" class="button">Take a picture</button>
+      <button id="camera--trigger" class="button hidden">Take a picture</button>
     </main>
     <!-- Reference to your JavaScript file -->
     <script src="assets/js/app.js"></script>

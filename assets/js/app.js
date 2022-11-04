@@ -15,6 +15,8 @@ const cameraView = document.querySelector("#camera--view"),
 
   text = document.querySelector("#overlay--text-content");
 
+  hiddens = document.querySelectorAll(".hidden");
+
 // Access the device camera and stream to cameraView
 function cameraStart() {
   navigator.mediaDevices
@@ -22,6 +24,9 @@ function cameraStart() {
     .then(function (stream) {
       track = stream.getTracks()[0];
       cameraView.srcObject = stream;
+      hiddens.forEach(hidden => {
+        hidden.classList.remove("hidden");
+      })
     })
     .catch(function (error) {
       console.error("Oops. Something is broken.", error);

@@ -130,3 +130,6 @@ body {
   text-align: center;
   z-index: 999;
 }
+.hidden {
+  display: none !important;
+}
