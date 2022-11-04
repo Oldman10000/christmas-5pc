@@ -28,9 +28,9 @@ body {
 }
 #camera--output-wrapper {
   position: absolute;
-  transform: scaleX(1);
 }
 #camera--output-save {
+  transform: scaleX(-1) translateX(50%);
   position: absolute;
   bottom: 10px;
   display: none;
@@ -38,6 +38,7 @@ body {
 #camera--trigger {
   position: fixed;
   bottom: 30px;
+  transform: translateX(-50%);
 }
 #overlay--frame {
   z-index: 99;
@@ -58,7 +59,6 @@ body {
   border-radius: 20px;
   border: 2px solid gold;
   left: 50%;
-  transform: translateX(-50%);
   cursor: pointer;
   text-decoration: none;
   z-index: 999;
