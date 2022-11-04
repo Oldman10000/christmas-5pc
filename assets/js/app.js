@@ -11,6 +11,10 @@ const cameraView = document.querySelector("#camera--view"),
 
   frameSelectors = document.querySelectorAll(".frame--selector");
 
+  textInput = document.querySelector("#overlay--text-input");
+
+  text = document.querySelector("#overlay--text-content");
+
 // Access the device camera and stream to cameraView
 function cameraStart() {
   navigator.mediaDevices
@@ -31,6 +35,11 @@ cameraTrigger.onclick = function () {
   let context = cameraSensor.getContext("2d");
   context.drawImage(cameraView, 0, 0);
   context.drawImage(frame, 0, 0, cameraView.videoWidth, cameraView.videoHeight);
+
+  context.font = "26px Comic Sans MS";
+  context.fillStyle = "red";
+  context.textAlign = "center";
+  context.fillText(text.innerHTML, cameraView.videoWidth / 2, cameraView.videoHeight * 0.4);
   cameraOutput.src = cameraSensor.toDataURL("image/webp");
   cameraOutputWrapper.classList.add("taken");
   cameraOutputWrapper.style.width = cameraView.videoWidth;
@@ -49,3 +58,9 @@ frameSelectors.forEach(selector => {
     frame.src = "/assets/img/" + src;
   }
 });
+
+textInput.onchange = function () {
+  if (textInput.value) {
+    text.innerHTML = "Merry Christmas from " + textInput.value;
+  }
+}
