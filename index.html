@@ -16,9 +16,12 @@
       <!-- Camera view -->
       <video id="camera--view" autoplay playsinline></video>
       <!-- Camera output -->
-      <img src="//:0" alt="" id="camera--output" />
+      <div id="camera--output-wrapper">
+          <img src="//:0" alt="" id="camera--output" />
+          <a href="#" id="camera--output-save" class="button" download="christmas.webp">Save</a>
+      </div>
       <!-- Camera trigger -->
-      <button id="camera--trigger">Take a picture</button>
+      <button id="camera--trigger" class="button">Take a picture</button>
     </main>
     <!-- Reference to your JavaScript file -->
     <script src="app.js"></script>
