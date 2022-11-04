@@ -11,6 +11,7 @@ body {
 #camera--view,
 #camera--sensor,
 #camera--output-wrapper,
+#overlay--frame,
 #camera--output {
   position: fixed;
   height: 100%;
@@ -20,6 +21,7 @@ body {
 #camera--view,
 #camera--sensor,
 #camera--output-wrapper,
+#overlay--frame,
 #camera--output {
   transform: scaleX(-1);
   filter: FlipH;
@@ -37,6 +39,13 @@ body {
   position: fixed;
   bottom: 30px;
 }
+#overlay--frame {
+  z-index: 99;
+}
+#overlay--frame-img {
+  height: 100%;
+  width: 100%;
+}
 .button {
   width: 200px;
   font-size: 32px;
@@ -51,18 +60,20 @@ body {
   transform: translateX(-50%);
   cursor: pointer;
   text-decoration: none;
+  z-index: 999;
+}
+.draggable {
+  width: 50px;
 }
 .button:hover {
   color: green;
   border-color: green;
 }
 .taken {
-  height: 500px !important;
-  width: 500px !important;
   transition: all 0.5s ease-in;
   border: solid 3px white;
   box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.2);
   top: 20px;
   right: 20px;
-  z-index: 2;
+  z-index:999;
 }

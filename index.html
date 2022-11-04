@@ -6,24 +6,46 @@
     <!-- Name of your awesome camera app -->
     <title>Camera App</title>
     <!-- Link to your main style sheet-->
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js"
+      integrity="sha512-gmwBmiTVER57N3jYS3LinA9eb8aHrJua5iQD7yqYCKa5x6Jjc7VDVaEA0je0Lu0bP9j7tEjV3+1qUm6loO99Kw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/Draggable.min.js"
+      integrity="sha512-gb0L1oKetT+9EmxmPd4jIhvqLs3sT8hYJIkBCd9g3LOlWzSBuM+ERETImRrOWsAhheU9KpxaA1g3chxOl77sqg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
   </head>
   <body>
     <!-- Camera -->
     <main id="camera">
       <!-- Camera sensor -->
       <canvas id="camera--sensor"></canvas>
+      <!-- Overlay christmassy frame -->
+      <div id="overlay--frame">
+        <img id="overlay--frame-img" src="assets/img/frame.png" alt="">
+      </div>
       <!-- Camera view -->
       <video id="camera--view" autoplay playsinline></video>
       <!-- Camera output -->
       <div id="camera--output-wrapper">
-          <img src="//:0" alt="" id="camera--output" />
-          <a href="#" id="camera--output-save" class="button" download="christmas.webp">Save</a>
+        <img src="//:0" alt="" id="camera--output" />
+        <a
+          href="#"
+          id="camera--output-save"
+          class="button"
+          download="christmas.webp"
+          >Save</a
+        >
       </div>
       <!-- Camera trigger -->
       <button id="camera--trigger" class="button">Take a picture</button>
     </main>
     <!-- Reference to your JavaScript file -->
-    <script src="app.js"></script>
+    <script src="assets/js/app.js"></script>
   </body>
 </html>
