@@ -42,7 +42,6 @@ body {
   transform: scaleX(-1) translateX(50%);
   position: absolute;
   bottom: 10px;
-  display: none;
 }
 #camera--trigger {
   position: fixed;
@@ -139,6 +138,10 @@ body {
 #edit-image, #camera--output {
   font-family: Arial, Helvetica, sans-serif;
   transform: scaleX(-1);
+}
+
+#camera--output {
+  display: none;
 }
 
 #edit-image {
