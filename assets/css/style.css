@@ -35,6 +35,8 @@ body {
 }
 #camera--output-wrapper {
   position: absolute;
+  max-width: 100%;
+  display: none;
 }
 #camera--output-save {
   transform: scaleX(-1) translateX(50%);
@@ -54,6 +56,7 @@ body {
 #overlay--frame-img {
   height: 100%;
   width: 100%;
+  display: none;
 }
 .button {
   width: 200px;
@@ -78,7 +81,6 @@ body {
 }
 .taken {
   transition: all 0.5s ease-in;
-  border: solid 3px white;
   box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.2);
   top: 20px;
   right: 20px;
@@ -132,4 +134,18 @@ body {
 }
 .hidden {
   display: none !important;
+}
+
+#edit-image, #camera--output {
+  font-family: Arial, Helvetica, sans-serif;
+  transform: scaleX(-1);
+}
+
+#edit-image {
+  padding: 10px;
+}
+
+.range-field label {
+  font-size: 1em;
+  font-weight: bold;
 }

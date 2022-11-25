@@ -5,8 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!-- Name of your awesome camera app -->
     <title>Camera App</title>
+
+    <!-- Compiled and minified CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+
     <!-- Link to your main style sheet-->
     <link rel="stylesheet" href="assets/css/style.css" />
+
+    <!-- Compiled and minified JavaScript -->
+    <script
+      defer
+      src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"
+    ></script>
   </head>
   <body>
     <!-- Camera -->
@@ -15,31 +28,160 @@
       <canvas id="camera--sensor"></canvas>
       <!-- Choose frame -->
       <div id="overlay--selector" class="hidden">
-          <img class="frame--selector" data-img="frame.png" src="/assets/img/frame.png" alt="">
-          <img class="frame--selector" data-img="frame2.png" src="/assets/img/frame2.png" alt="">
+        <img
+          class="frame--selector"
+          data-img="frame.png"
+          src="/assets/img/frame.png"
+          alt=""
+        />
+        <img
+          class="frame--selector"
+          data-img="frame2.png"
+          src="/assets/img/frame2.png"
+          alt=""
+        />
       </div>
       <!-- Add Text -->
       <div id="overlay--text" class="hidden">
-        <input id="overlay--text-input" type="text" placeholder="Merry Christmas from...">
+        <input
+          id="overlay--text-input"
+          type="text"
+          placeholder="Merry Christmas from..."
+        />
       </div>
       <!-- Overlay text -->
       <h1 id="overlay--text-content" class="hidden"></h1>
       <!-- Overlay christmassy frame -->
       <div id="overlay--frame" class="hidden">
-        <img id="overlay--frame-img" src="" alt="">
+        <img id="overlay--frame-img" src="" alt="" />
       </div>
       <!-- Camera view -->
       <video id="camera--view" autoplay playsinline></video>
       <!-- Camera output -->
-      <div id="camera--output-wrapper" class="hidden">
-        <img src="//:0" alt="" id="camera--output" />
-        <a
-          href="#"
-          id="camera--output-save"
-          class="button"
-          download="christmas.webp"
+      <div id="camera--output-wrapper">
+        <img src="//:0" alt="" id="camera--output"/>
+        <a id="camera--output-save" class="button" onclick="saveImage()"
           >Save</a
         >
+
+        <div id="edited--canvas--wrapper">
+          <canvas id="editedCanvas" height="0"></canvas>
+        </div>
+
+        <div id="edit-image" class="green darken-4">
+          <!-- All the image controls that will be
+          used for modifying the image -->
+          <div class="image-controls">
+            <div class="row">
+              <div class="col s12 m6">
+                <span class="range-field">
+                  <label for="brightnessSlider" class="red-text">
+                    Brightness
+                  </label>
+                  <input
+                    id="brightnessSlider"
+                    type="range"
+                    value="100"
+                    min="0"
+                    max="300"
+                    onchange="applyFilter()"
+                  />
+                </span>
+              </div>
+              <div class="col s12 m6">
+                <span class="range-field">
+                  <label for="contrastSlider" class="red-text">
+                    Contrast
+                  </label>
+                  <input
+                    id="contrastSlider"
+                    type="range"
+                    value="100"
+                    min="0"
+                    max="200"
+                    onchange="applyFilter()"
+                  />
+                </span>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col s12 m6">
+                <span class="range-field">
+                  <label for="grayscaleSlider" class="red-text">
+                    Grayscale
+                  </label>
+                  <input
+                    id="grayscaleSlider"
+                    type="range"
+                    value="0"
+                    min="0"
+                    max="100"
+                    onchange="applyFilter()"
+                  />
+                </span>
+              </div>
+              <div class="col s12 m6">
+                <span class="range-field">
+                  <label for="saturationSlider" class="red-text">
+                    Saturation
+                  </label>
+                  <input
+                    id="saturationSlider"
+                    type="range"
+                    value="100"
+                    min="0"
+                    max="300"
+                    onchange="applyFilter()"
+                  />
+                </span>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col s12 m6">
+                <span class="range-field">
+                  <label for="sepiaSlider" class="red-text"> Sepia </label>
+                  <input
+                    id="sepiaSlider"
+                    type="range"
+                    value="0"
+                    min="0"
+                    max="200"
+                    onchange="applyFilter()"
+                  />
+                </span>
+              </div>
+              <div class="col s12 m6">
+                <span class="range-field">
+                  <label for="hueRotateSlider" class="red-text bold">
+                    Hue
+                  </label>
+                  <input
+                    id="hueRotateSlider"
+                    type="range"
+                    value="0"
+                    min="0"
+                    max="360"
+                    onchange="applyFilter()"
+                  />
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Buttons that will be used to change
+        the values to preset ones -->
+          <div class="preset-filters">
+            <h6 class="white-text">Presets</h6>
+            <button class="btn red" onclick="brightenFilter()">Brighten</button>
+            <button class="btn red" onclick="bwFilter()">
+              Black and White
+            </button>
+            <button class="btn red" onclick="funkyFilter()">Funky</button>
+            <button class="btn red" onclick="vintageFilter()">Vintage</button>
+          </div>
+        </div>
       </div>
       <!-- Camera trigger -->
       <button id="camera--trigger" class="button hidden">Take a picture</button>
