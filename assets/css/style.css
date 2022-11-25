@@ -38,11 +38,6 @@ body {
   max-width: 100%;
   display: none;
 }
-#camera--output-save {
-  transform: scaleX(-1) translateX(50%);
-  position: absolute;
-  bottom: 10px;
-}
 #camera--trigger {
   position: fixed;
   bottom: 30px;
